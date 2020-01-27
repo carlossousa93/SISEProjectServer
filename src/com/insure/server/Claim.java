@@ -1,24 +1,34 @@
 package com.insure.server;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Claim {
-    private int uuid;
+    private AtomicInteger uuid; // id da claim
     private String description;
-    public Claim (int uuid, String description){
-        this.uuid = uuid;
+    private final int userID; //
+
+    public Claim (int id, String description, int userID){
+        this.uuid = new AtomicInteger(id);
         this.description = description;
+        this.userID = userID;
     }
-    public void setUuid(int uuid) {
-        this.uuid = uuid;
-    }
+
     public int getUuid() {
-        return uuid;
+        return uuid.get();
     }
+
     public String getDescription() {
         return description;
     }
+
+    public int getUserID() {
+        return userID;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
+
     @Override
     public String toString(){
         return "Claim ID:" + uuid + "\n" +
