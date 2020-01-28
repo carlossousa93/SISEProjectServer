@@ -4,7 +4,7 @@ public class Main {
     static class MyThread extends Thread {
 
         //private ClaimDataStore DB;
-        private ClaimDataStore DS;
+        ClaimDataStore DS = new ClaimDataStore();
         private String Description;
         private int userID;
 
@@ -18,14 +18,13 @@ public class Main {
         public void run() {
             // update the loop
             for (int i = 0; i < 6; i++) {
-                // writeHello();
                 int claim = DS.createClaim(Description, userID);
                 System.out.println(Description + " " + claim);
             }
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String args[]) throws Exception {
         //System.out.println("Project template - server");
 
         // fix the calls to the updated constructor

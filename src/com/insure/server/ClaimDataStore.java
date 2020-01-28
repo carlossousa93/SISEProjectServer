@@ -11,9 +11,9 @@ package com.insure.server;
 @WebService
 public class ClaimDataStore {
     // field to keep a Unique ID
-    private AtomicInteger ID = new AtomicInteger(0);
-    private String Description;
-    private int userID;
+    public AtomicInteger ID = new AtomicInteger(0);
+    public String Description;
+    public int userID;
     // field with a Collection to store the data
     protected Map<Integer, String> DataStore  = new ConcurrentHashMap<Integer, String>();
 
