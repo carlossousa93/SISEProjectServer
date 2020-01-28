@@ -4,14 +4,13 @@ package com.insure.server;
 
         import javax.jws.WebService;
         import java.util.Map;
-        import java.util.UUID;
         import java.util.concurrent.ConcurrentHashMap;
         import java.util.concurrent.atomic.AtomicInteger;
 
 @WebService
 public class ClaimDataStore {
     // field to keep a Unique ID
-    public AtomicInteger ID = new AtomicInteger(0);
+    public AtomicInteger ID = new AtomicInteger(1);
     public String Description;
     public int userID;
     // field with a Collection to store the data
@@ -42,7 +41,7 @@ public class ClaimDataStore {
     static class MyThread extends Thread {
 
         //private ClaimDataStore DB;
-        ClaimDataStore DS = new ClaimDataStore();
+        private ClaimDataStore DS;
         private String Description;
         private int userID;
 
@@ -66,8 +65,8 @@ public class ClaimDataStore {
         //System.out.println("Project template - server");
 
         // fix the calls to the updated constructor
-        Thread a = new Main.MyThread("a",1);
-        Thread b = new Main.MyThread("B", 2);
+        Thread a = new MyThread("a",1);
+        Thread b = new MyThread("B", 2);
         a.start();
         b.start();
         a.join();
