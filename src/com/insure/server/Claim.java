@@ -3,18 +3,18 @@ package com.insure.server;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Claim {
-    private AtomicInteger uuid; // id da claim
+    private final int id; // id da claim
     private String description;
     private final int userID; //
 
     public Claim (int id, String description, int userID){
-        this.uuid = new AtomicInteger(id);
+        this.id = id;
         this.description = description;
         this.userID = userID;
     }
 
     public int getUuid() {
-        return uuid.get();
+        return id;
     }
 
     public String getDescription() {
@@ -31,7 +31,6 @@ public class Claim {
 
     @Override
     public String toString(){
-        return "Claim ID:" + uuid + "\n" +
-                "Description:" + this.description;
+        return "Claim ID: " + id  + " Description:" + this.description;
     }
 }
