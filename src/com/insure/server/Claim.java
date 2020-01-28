@@ -13,7 +13,7 @@ public class Claim {
         this.userID = userID;
     }
 
-    public int getUuid() {
+    public int getId() {
         return id;
     }
 

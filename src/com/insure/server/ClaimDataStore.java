@@ -10,7 +10,7 @@ package com.insure.server;
 @WebService
 public class ClaimDataStore {
     // field to keep a Unique ID
-    public AtomicInteger ID = new AtomicInteger(1);
+    public AtomicInteger ID = new AtomicInteger(0);
     public String Description;
     public int userID;
     // field with a Collection to store the data
@@ -26,10 +26,8 @@ public class ClaimDataStore {
     // Create Claim: Da parte do cliente, ele apenas conseguirá utilizar este metodo para criar uma claim com descrição.
     // O ID é criado automaticamente do lado do Server
     public int createClaim(String Description, int userID){
-        Claim claim = new Claim(ID.intValue(), Description, userID);
-        int claim_ID = claim.getUuid();
-        ID.incrementAndGet();
-        return claim_ID;
+        Claim claim = new Claim(ID.incrementAndGet(), Description, userID);
+        return claim.getUuid();
         // criar metodo de verificação ID do cliente/funcionário
     }
 
