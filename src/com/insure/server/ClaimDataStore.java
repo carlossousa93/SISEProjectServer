@@ -27,7 +27,7 @@ public class ClaimDataStore {
     // O ID é criado automaticamente do lado do Server
     public int createClaim(String Description, int userID){
         Claim claim = new Claim(ID.incrementAndGet(), Description, userID);
-        return claim.getUuid();
+        return claim.getId();
         // criar metodo de verificação ID do cliente/funcionário
     }
 

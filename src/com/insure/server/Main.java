@@ -7,6 +7,6 @@ public class Main {
     public static void main(String args[]) {
         System.out.println("\"Claim Data Store Web Service is starting.\"");
         ClaimDataStore ClaimDataStore = new ClaimDataStore();
-        Endpoint.publish("http://localhost:8090/calcservice", calc);
+        Endpoint.publish("http://localhost:8090/docstorage", ClaimDataStore);
     }
 }
